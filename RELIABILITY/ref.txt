@@ -1,0 +1,12 @@
+doc to vec - entire doc to vector dense vector representation
+
+
+all possible tokens in the doc - check number of tokens - if it is in million
+
+gensim - doc to vec - train on all document -- generate vectors for those docs
+use those vectors to perform the agglomerative or k-means clustering
+
+
+cosine similarity thresholding may not be a good approach
+
+
