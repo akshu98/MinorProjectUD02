@@ -26,4 +26,4 @@ for url in links:
     
 df["Title"]=titles
 df["Text"]=text
-df.to_csv("../data/parsed_news_articles.csv",encoding="utf-8")
+df.to_csv("../data/parsed_news_articles.csv",index=None)
