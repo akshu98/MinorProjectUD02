@@ -8,6 +8,7 @@ links= df["Link"]
 titles=[]
 text=[]
 cnt=1
+urls = []
 for url in links:
 	try:
 		print(cnt)
@@ -19,11 +20,15 @@ for url in links:
 		text.append(news_article.text)
 		cnt=cnt+1
 	except:
-		print(url)
+		print("problem")
+		urls.append([df.loc[df['Link']==url,'Source'].iloc[0],url])
 		df.drop(df.loc[df['Link']==url].index, inplace=True)
-		print("dropped")
+		print("added to reparse df")
 		cnt=cnt+1
     
 df["Title"]=titles
 df["Text"]=text
 df.to_csv("../data/parsed_news_articles.csv",index=None)
+
+reparse_df = pd.DataFrame(urls,columns=['Source','Link'])
+reparse_df.to_csv('../data/reparse_data.csv')
