@@ -194,9 +194,13 @@ def reliability_finder(source_score,neutrality_score,strong_words_score):
     score = (0.35)*source_score
     score = score + (0.35)*neutrality_score
     score = score + (0.3)*strong_words_score
+    score=score / (1.45)
+    print("score",score)
     if score>0.6:
         reliability_label = "Reliable"
     else:
         reliability_label = "Not Reliable"
+    
 
+	
     return reliability_label

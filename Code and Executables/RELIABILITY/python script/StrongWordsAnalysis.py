@@ -132,16 +132,20 @@ articles_df.to_csv('../data/StrongWordsAnalysis.csv',index=None)
 
 def strong_words_score(article):
     c=0
+    print("length",len(words_to_check))
     for word in set(article.split(' ')):
 
         if(word in words_to_check):
-            c=c+1    
-        try:
-            score = float(c)/len(set(article.split(' ')))
-
-        except Exception:
-            score = 0.0
-
+            c=c+1   
+             
+    try:
+        score = float(c)/len(set(article.split(' ')))
+        # print("c",c)
+        # print(len(set(article.split(' '))))
+    except Exception:
+        score = 0.0
+    #print("score",score)
+    print("article",article)
     if score>=0 and score<=0.05:
         score_label=3
     elif score>0.05 and score<=0.1:
